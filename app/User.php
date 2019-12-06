@@ -1,6 +1,7 @@
 <?php
 
 namespace App;
+use App\Role;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -25,6 +26,7 @@ class User extends Authenticatable
     ];
 
     public function role(){
-        $this->belongsTo('App\Role');
+       return  $this->belongsTo('App\Role');
     }
+
 }
