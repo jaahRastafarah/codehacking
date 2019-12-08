@@ -1,14 +1,13 @@
 <?php
 
 namespace App;
-use App\User;
+
 use Illuminate\Database\Eloquent\Model;
 
-class Role extends Model
+class Category extends Model
 {
     //
-
-    protected $fillable =[
+    protected $fillable = [
         'name'
     ];
 }
