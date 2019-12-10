@@ -28,6 +28,8 @@ Route::group(['middleware'=>'admin'], function(){
     Route::resource('admin/users', 'AdminUsersController');
     Route::resource('admin/posts', 'AdminPostsController');
     Route::resource('admin/categories', 'AdminCategoriesController');
+    Route::resource('admin/media', 'AdminMediasController');
+//    Route::get('admin/media/uploads', ['as'=>'admin.media.uploads', 'uses'=>'AdminMediasController@store']);
 
 });
 
