@@ -10,6 +10,7 @@ class Comment extends Model
     protected $fillable = [
         'post_id',
         'author',
+        'photo',
         'email',
         'body',
         'is_active'
@@ -19,5 +20,8 @@ class Comment extends Model
 
     public function replies(){
         return $this->hasMany('App\CommentReply');
+    }
+    public function posts(){
+        return $this->belongsTo('App\Post');
     }
 }
