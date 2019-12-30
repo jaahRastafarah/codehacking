@@ -11,18 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index');
 
 Route::auth();
 Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::group(['middleware'=>'admin'], function(){
 
-    Route::get('/admin', function(){
-        return view('admin.index');
-    });
+    Route::get('/admin', 'AdminController@index');
 
     Route::resource('admin/users', 'AdminUsersController',['names'=>[
           'index'=>'admin.users.index',
@@ -47,12 +43,16 @@ Route::group(['middleware'=>'admin'], function(){
         'edit'=>'admin.categories.edit',
   ]]);
 
+  
+
     Route::resource('admin/media', 'AdminMediasController',['names'=>[
         'index'=>'admin.media.index',
         'create'=>'admin.media.create',
         'store'=>'admin.media.store',
         'edit'=>'admin.media.edit',
   ]]);
+
+  Route::delete('admin/delete/media', 'AdminMediasController@deleteMedia');
 
 //    Route::get('admin/media/uploads', ['as'=>'admin.media.uploads', 'uses'=>'AdminMediasController@store']);
     Route::resource('admin/comments', 'PostCommentsController',['names'=>[
